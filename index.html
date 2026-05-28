@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A.G. School Batch '93 — Vegas at 50</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@400;500&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C96A;
+  --gold-pale: #F5E6B8;
+  --black: #080808;
+  --charcoal: #141414;
+  --cream: #F8F4EC;
+  --red: #C0392B;
+  --green: #27AE60;
+  --amber: #E67E22;
+  --blue: #2980B9;
+  --purple: #8E44AD;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--black); color:var(--cream); font-family:'DM Sans',sans-serif; overflow-x:hidden; }
+
+/* ── HERO ── */
+.hero {
+  min-height:100vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:2rem; position:relative;
+  background: radial-gradient(ellipse at 50% 70%, #1a0e00 0%, #080808 65%);
+  overflow:hidden;
+}
+.hero-eyebrow {
+  font-size:0.65rem; letter-spacing:0.4em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:1.2rem;
+  animation:fadeUp 0.8s ease forwards 0.2s; opacity:0;
+}
+.hero-school {
+  font-family:'Bebas Neue',sans-serif; font-size:clamp(1.2rem,4vw,2rem);
+  color:rgba(201,168,76,0.6); letter-spacing:0.15em;
+  animation:fadeUp 0.8s ease forwards 0.4s; opacity:0;
+  margin-bottom:0.5rem;
+}
+.hero-title {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(4.5rem,16vw,12rem);
+  line-height:0.85; color:#fff;
+  animation:fadeUp 0.9s ease forwards 0.6s; opacity:0;
+}
+.hero-title span { display:block; color:var(--gold); font-size:clamp(5.5rem,20vw,15rem); line-height:0.8; text-shadow:0 0 80px rgba(201,168,76,0.25); }
+.hero-tagline {
+  font-family:'Playfair Display',serif; font-style:italic;
+  font-size:clamp(1rem,2.5vw,1.4rem); color:var(--gold-pale);
+  margin-top:1.8rem;
+  animation:fadeUp 0.9s ease forwards 0.9s; opacity:0;
+}
+.hero-dates {
+  margin-top:2rem; display:inline-flex; gap:0.5rem; align-items:center;
+  border:1px solid rgba(201,168,76,0.35); padding:0.55rem 1.6rem;
+  font-size:0.7rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold);
+  animation:fadeUp 0.9s ease forwards 1.1s; opacity:0;
+}
+.scroll-hint {
+  position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
+  color:rgba(201,168,76,0.4); font-size:0.6rem; letter-spacing:0.2em;
+  text-transform:uppercase; display:flex; flex-direction:column; align-items:center; gap:0.4rem;
+  animation:fadeIn 1s ease forwards 2s; opacity:0;
+}
+.scroll-hint::after { content:''; width:1px; height:36px; background:linear-gradient(to bottom,rgba(201,168,76,0.4),transparent); }
+
+/* ── BAND ── */
+.band { background:var(--gold); padding:1rem; overflow:hidden; white-space:nowrap; }
+.band-inner { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:0.2em; color:var(--black); display:inline-block; animation:marquee 25s linear infinite; }
+@keyframes marquee { from{transform:translateX(100vw)} to{transform:translateX(-100%)} }
+
+/* ── LAYOUT ── */
+.container { max-width:960px; margin:0 auto; padding:4.5rem 1.5rem; }
+.section-tag { font-size:0.6rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold); margin-bottom:0.8rem; display:flex; align-items:center; gap:0.8rem; }
+.section-tag::after { content:''; flex:1; height:1px; background:linear-gradient(to right,rgba(201,168,76,0.4),transparent); max-width:60px; }
+h2 { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,2.8rem); line-height:1.15; color:#fff; margin-bottom:1.2rem; }
+h2 em { color:var(--gold); font-style:italic; }
+p { font-size:1rem; line-height:1.75; color:rgba(248,244,236,0.78); margin-bottom:0.9rem; }
+.divider { height:1px; background:linear-gradient(to right,transparent,rgba(201,168,76,0.25),transparent); }
+
+/* ── CREW GRID ── */
+.crew-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1.2rem; margin-top:2rem; }
+.crew-card {
+  border:1px solid rgba(201,168,76,0.15); padding:1.6rem 1.4rem;
+  background:rgba(201,168,76,0.03); position:relative; overflow:hidden;
+  transition:border-color 0.3s;
+}
+.crew-card:hover { border-color:rgba(201,168,76,0.4); }
+.crew-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.crew-card.p1::before { background:var(--blue); }
+.crew-card.p2::before { background:var(--red); }
+.crew-card.p3::before { background:var(--green); }
+.crew-card.p4::before { background:var(--purple); }
+.crew-name { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#fff; line-height:1; margin-bottom:0.2rem; }
+.crew-origin { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:1rem; }
+.crew-card.p1 .crew-origin { color:var(--blue); }
+.crew-card.p2 .crew-origin { color:var(--red); }
+.crew-card.p3 .crew-origin { color:var(--green); }
+.crew-card.p4 .crew-origin { color:var(--purple); }
+.flight-line { font-family:'DM Mono',monospace; font-size:0.78rem; color:rgba(248,244,236,0.65); line-height:1.6; }
+.flight-line span { color:var(--gold-light); }
+.badge { display:inline-block; font-size:0.55rem; letter-spacing:0.15em; text-transform:uppercase; padding:0.2rem 0.5rem; border-radius:2px; margin-top:0.8rem; }
+.badge-booked { background:rgba(39,174,96,0.15); color:#2ecc71; border:1px solid rgba(39,174,96,0.3); }
+.badge-todo { background:rgba(231,76,60,0.15); color:#e74c3c; border:1px solid rgba(231,76,60,0.3); }
+
+/* ── BHARAT CALLOUT ── */
+.callout {
+  background:linear-gradient(135deg,#1a0800,#120a00);
+  border:1px solid rgba(231,76,60,0.3); border-left:3px solid #e74c3c;
+  padding:1.8rem; margin-top:2rem;
+}
+.callout-title { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:#e74c3c; margin-bottom:0.6rem; }
+.callout p { font-size:0.9rem; color:rgba(248,244,236,0.75); margin-bottom:0.4rem; }
+.flight-option { background:rgba(255,255,255,0.03); border:1px solid rgba(201,168,76,0.1); padding:0.8rem 1rem; margin:0.5rem 0; }
+.fo-route { font-family:'DM Mono',monospace; font-size:0.8rem; color:var(--gold-light); }
+.fo-detail { font-size:0.8rem; color:rgba(248,244,236,0.6); margin-top:0.2rem; }
+
+/* ── ARRIVAL TIMELINE ── */
+.arrival-list { margin-top:1.5rem; }
+.arrival-item { display:grid; grid-template-columns:90px 1fr; gap:1rem; margin-bottom:1.2rem; align-items:start; }
+.arr-time { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; color:var(--gold); line-height:1; }
+.arr-sub { font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(201,168,76,0.5); }
+.arr-info { border-left:1px solid rgba(201,168,76,0.2); padding-left:1rem; }
+.arr-name { font-weight:600; font-size:0.95rem; color:#fff; margin-bottom:0.2rem; }
+.arr-detail { font-size:0.82rem; color:rgba(248,244,236,0.6); line-height:1.5; }
+.arr-color { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:0.4rem; }
+
+/* ── ITINERARY ── */
+.day-row { display:grid; grid-template-columns:100px 1fr; gap:1.5rem; margin-bottom:2.8rem; position:relative; }
+.day-row::after { content:''; position:absolute; left:49px; top:55px; bottom:-1.5rem; width:1px; background:linear-gradient(to bottom,rgba(201,168,76,0.25),transparent); }
+.day-row:last-child::after { display:none; }
+.day-dot { width:54px; height:54px; border:1px solid var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:1.3rem; color:var(--gold); background:var(--black); margin:0 auto; }
+.day-date { font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(201,168,76,0.45); text-align:center; margin-top:0.3rem; }
+.day-heading { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:700; color:#fff; margin-bottom:0.3rem; }
+.day-mood { font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:0.8rem; }
+ul.acts { list-style:none; }
+ul.acts li { font-size:0.88rem; color:rgba(248,244,236,0.72); padding:0.38rem 0; border-bottom:1px solid rgba(201,168,76,0.07); display:flex; gap:0.6rem; line-height:1.5; }
+ul.acts li::before { content:'→'; color:var(--gold); flex-shrink:0; }
+
+/* ── CAESARS NOTE ── */
+.caesars-box { background:linear-gradient(135deg,#0d0d00,#110f00); border:1px solid rgba(201,168,76,0.2); padding:2rem; margin-top:2rem; display:grid; grid-template-columns:auto 1fr; gap:1.5rem; align-items:start; }
+.caesars-icon { font-size:2.5rem; }
+.caesars-title { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:var(--gold); line-height:1; margin-bottom:0.3rem; }
+.tip-list { list-style:none; margin-top:0.8rem; }
+.tip-list li { font-size:0.85rem; color:rgba(248,244,236,0.7); padding:0.35rem 0; display:flex; gap:0.5rem; }
+.tip-list li::before { content:'✦'; color:var(--gold); font-size:0.6rem; flex-shrink:0; margin-top:0.2rem; }
+
+/* ── TOAST ── */
+.toast-wrap { text-align:center; padding:5rem 1.5rem; background:radial-gradient(ellipse at 50% 50%,#160e00,#080808); border-top:1px solid rgba(201,168,76,0.1); }
+.toast-quote { font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(1.1rem,3vw,1.7rem); color:var(--gold-pale); max-width:620px; margin:0 auto; line-height:1.65; }
+.toast-attr { font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(201,168,76,0.4); margin-top:1.5rem; }
+.names-row { font-family:'Bebas Neue',sans-serif; font-size:clamp(1rem,3vw,1.6rem); color:var(--gold); letter-spacing:0.15em; margin-top:1rem; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">A.G. School · Ahmedabad · Batch of 1993</div>
+  <div class="hero-school">Four Boys. Thirty-Three Years. One City.</div>
+  <div class="hero-title">
+    VEGAS
+    <span>AT 50</span>
+  </div>
+  <div class="hero-tagline">Priyen · Nikunj · Chintan · Bharat</div>
+  <div class="hero-dates">September 8 – 11, 2026 &nbsp;·&nbsp; Caesar's Palace, Las Vegas</div>
+  <div class="scroll-hint">Scroll</div>
+</div>
+
+<!-- TICKER -->
+<div class="band">
+  <span class="band-inner">A.G. SCHOOL BATCH '93 &nbsp;✦&nbsp; AHMEDABAD TO VEGAS &nbsp;✦&nbsp; NO FAMILIES &nbsp;✦&nbsp; NO BEDTIMES &nbsp;✦&nbsp; NO EXCUSES &nbsp;✦&nbsp; FIFTY AND FEARLESS &nbsp;✦&nbsp; LEGENDS NEVER RETIRE &nbsp;✦&nbsp; A.G. SCHOOL BATCH '93 &nbsp;✦&nbsp;</span>
+</div>
+
+<!-- CREW -->
+<div class="container">
+  <div class="section-tag">The Crew</div>
+  <h2>Four Corners of <em>North America</em></h2>
+  <p>From Ahmedabad to Ottawa, Phoenix, Sacramento, and Newark — you scattered across a continent, built entire lives, and still found your way back to each other after 33 years. That's not luck. That's friendship.</p>
+
+  <div class="crew-grid">
+
+    <div class="crew-card p1">
+      <div class="crew-name">Priyen</div>
+      <div class="crew-origin">✈ Ottawa, Canada (YOW)</div>
+      <div class="flight-line">
+        <span>06:00</span> YOW → YYC (WS611)<br>
+        <span>11:00</span> YYC → LAS (WS1088)<br>
+        <span>Arrives:</span> 12:55 PM Las Vegas<br>
+        <span>Total:</span> 9h 55m · Via Calgary
+      </div>
+      <div class="badge badge-booked">✓ Booked</div>
+    </div>
+
+    <div class="crew-card p2">
+      <div class="crew-name">Nikunj</div>
+      <div class="crew-origin">✈ Phoenix, AZ (PHX)</div>
+      <div class="flight-line">
+        <span>10:30 AM</span> PHX → LAS<br>
+        <span>Arrives:</span> 11:40 AM<br>
+        <span>Flight:</span> 1h 10m · Nonstop<br>
+        <span>Return:</span> Sep 11 · 12:04 PM
+      </div>
+      <div class="badge badge-booked">✓ Booked</div>
+    </div>
+
+    <div class="crew-card p3">
+      <div class="crew-name">Chintan</div>
+      <div class="crew-origin">✈ Sacramento, CA (SMF)</div>
+      <div class="flight-line">
+        <span>12:40 PM</span> SMF → LAS<br>
+        <span>Arrives:</span> 2:05 PM<br>
+        <span>Flight:</span> 1h 25m · Nonstop<br>
+        <span>Return:</span> Sep 11 · 5:20 PM
+      </div>
+      <div class="badge badge-booked">✓ Booked</div>
+    </div>
+
+    <div class="crew-card p4">
+      <div class="crew-name">Bharat</div>
+      <div class="crew-origin">✈ Newark, NJ (EWR)</div>
+      <div class="flight-line">
+        <span>Flight:</span> Not yet booked<br>
+        <span>Route:</span> EWR → LAS<br>
+        <span>Flight time:</span> ~5h 30m nonstop<br>
+        <span>Airlines:</span> United, JetBlue, Delta
+      </div>
+      <div class="badge badge-todo">⚡ Book ASAP</div>
+    </div>
+
+  </div>
+
+  <!-- BHARAT BOOKING CALLOUT -->
+  <div class="callout">
+    <div class="callout-title">⚡ Bharat — Book Your Flight Now</div>
+    <p>EWR → LAS is about 5h 30min nonstop. United has the most frequent direct flights (46/week from EWR). Aim to arrive by early afternoon Sep 8 so you don't miss the first dinner.</p>
+    <div class="flight-option">
+      <div class="fo-route">Best option: United EWR → LAS (Nonstop)</div>
+      <div class="fo-detail">Target departure: 8–10 AM EST → arrives ~11 AM–1 PM PST. Book at united.com or google flights.</div>
+    </div>
+    <div class="flight-option">
+      <div class="fo-route">Alternative: JetBlue or Delta EWR → LAS (Nonstop)</div>
+      <div class="fo-detail">Both fly direct. Check fares — roundtrip from ~$200+. Return: Sep 11 evening from LAS.</div>
+    </div>
+    <p style="margin-top:0.8rem;font-size:0.8rem;color:rgba(248,244,236,0.5)">Pro tip: United miles? Use them here. It's a 2,221 mile haul — worth the redemption.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ARRIVAL ORDER -->
+<div class="container">
+  <div class="section-tag">Arrival Order</div>
+  <h2>Who Lands <em>When</em></h2>
+  <p>Here's how the band reassembles on September 8th:</p>
+
+  <div class="arrival-list">
+    <div class="arrival-item">
+      <div>
+        <div class="arr-time">11:40</div>
+        <div class="arr-sub">AM · Sep 8</div>
+      </div>
+      <div class="arr-info">
+        <div class="arr-name"><span class="arr-color" style="background:#C0392B;"></span>Nikunj lands first 🏆</div>
+        <div class="arr-detail">PHX → LAS · Nonstop · 1h 10m<br>First job: check in to Caesars & secure the suite.</div>
+      </div>
+    </div>
+    <div class="arrival-item">
+      <div>
+        <div class="arr-time">12:55</div>
+        <div class="arr-sub">PM · Sep 8</div>
+      </div>
+      <div class="arr-info">
+        <div class="arr-name"><span class="arr-color" style="background:#2980B9;"></span>Priyen arrives</div>
+        <div class="arr-detail">YOW → YYC → LAS · WestJet · 9h 55m journey from Ottawa<br>The longest haul of the crew — earned first drink.</div>
+      </div>
+    </div>
+    <div class="arrival-item">
+      <div>
+        <div class="arr-time">2:05</div>
+        <div class="arr-sub">PM · Sep 8</div>
+      </div>
+      <div class="arr-info">
+        <div class="arr-name"><span class="arr-color" style="background:#27AE60;"></span>Chintan arrives</div>
+        <div class="arr-detail">SMF → LAS · Nonstop · 1h 25m from Sacramento<br>By now the party has started at the pool.</div>
+      </div>
+    </div>
+    <div class="arrival-item">
+      <div>
+        <div class="arr-time">TBD</div>
+        <div class="arr-sub">Sep 8</div>
+      </div>
+      <div class="arr-info">
+        <div class="arr-name"><span class="arr-color" style="background:#8E44AD;"></span>Bharat arrives (once booked)</div>
+        <div class="arr-detail">EWR → LAS · ~5h 30m nonstop<br>Aim for early afternoon. Full crew assembled by evening.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ITINERARY -->
+<div class="container">
+  <div class="section-tag">The Plan</div>
+  <h2>Four Days, <em>Zero</em> Regrets</h2>
+
+  <div class="day-row">
+    <div>
+      <div class="day-dot">1</div>
+      <div class="day-date">Tue Sep 8</div>
+    </div>
+    <div>
+      <div class="day-mood">The Assembly</div>
+      <div class="day-heading">✈️ Everyone Lands — The Reunion Begins</div>
+      <ul class="acts">
+        <li>Nikunj holds the fort at Caesars from 11:40 AM — first one in gets to pick the room</li>
+        <li>Priyen arrives 12:55 PM — two down, two to go. First round ordered</li>
+        <li>Chintan in by 2:05 PM — pool bar is now officially mandatory</li>
+        <li>Bharat completes the gang — full A.G. School '93 reunion moment</li>
+        <li>Evening: The First Dinner. Somewhere proper. Gordon Ramsay Hell's Kitchen, Nobu, or Prime Steakhouse at Bellagio — order the expensive thing</li>
+        <li>Post-dinner: walk the Strip like it's yours. Because tonight, it is.</li>
+        <li>First casino session — low stakes, high stories, maximum nostalgia</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-row">
+    <div>
+      <div class="day-dot">2</div>
+      <div class="day-date">Wed Sep 9</div>
+    </div>
+    <div>
+      <div class="day-mood">The Main Event</div>
+      <div class="day-heading">🎰 Go Absolutely Big</div>
+      <ul class="acts">
+        <li>Late brunch — you're 50, you've earned the right to brunch at noon</li>
+        <li>Split daytime: race car driving at the Speedway OR spa morning OR helicopter Grand Canyon tour</li>
+        <li>The Fancy Night: dress up properly — one night in real clothes is mandatory</li>
+        <li>Dinner: tasting menu, bottle of something excellent, toast to the batch of '93</li>
+        <li>Show or club: Sphere experience, a residency, or rooftop bar with the city glittering below</li>
+        <li>End at a high-limit table — because you're adults with real money now and that felt impossible at 22</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-row">
+    <div>
+      <div class="day-dot">3</div>
+      <div class="day-date">Thu Sep 10</div>
+    </div>
+    <div>
+      <div class="day-mood">The Real Reunion</div>
+      <div class="day-heading">🌅 Slow Down. Talk Properly.</div>
+      <ul class="acts">
+        <li>Long lazy breakfast — nowhere to be, no agenda, phones face-down</li>
+        <li>"Where were you when..." session — Ahmedabad stories only, all embarrassing ones required</li>
+        <li>Off-Strip afternoon: Neon Museum, local Gujarati lunch somewhere (yes, Vegas has good Gujarati food), vintage record shops</li>
+        <li>Sunset drinks on a rooftop — watch the desert turn gold</li>
+        <li>Low-key evening: great bar, long conversations, remember what you were before life got complicated</li>
+        <li>Midnight khana run because you're still you</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-row">
+    <div>
+      <div class="day-dot">4</div>
+      <div class="day-date">Fri Sep 11</div>
+    </div>
+    <div>
+      <div class="day-mood">The Send-Off</div>
+      <div class="day-heading">👋 Go Out Right — No Sad Goodbyes</div>
+      <ul class="acts">
+        <li>Champagne brunch — non-negotiable, sacred ritual</li>
+        <li>Final casino round — each person plays their game one last time</li>
+        <li>Group photo where everyone looks like they got away with something (you did)</li>
+        <li>Nikunj & Priyen depart midday · Chintan departs 5:20 PM · Bharat TBD</li>
+        <li>At the airport: set the date for the 60th. Write it down. Don't let 10 more years slip by.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CAESARS NOTE -->
+<div class="container">
+  <div class="section-tag">Home Base</div>
+  <h2>Caesar's Palace — <em>Chosen Well</em></h2>
+  <div class="caesars-box">
+    <div class="caesars-icon">🏛️</div>
+    <div>
+      <div class="caesars-title">Caesar's Palace, Las Vegas</div>
+      <p style="font-size:0.85rem;color:rgba(248,244,236,0.65);margin-bottom:0;">A very fitting choice for the batch of '93. The most iconic address on the Strip — and September is excellent timing: summer crowds thin out, temperatures dip to the low-90s°F, and the city feels like it belongs to you.</p>
+      <ul class="tip-list">
+        <li>Book the Forum Tower or Augustus Tower — ask for a Strip view</li>
+        <li>The Garden of the Gods pool is spectacular — go at least one afternoon</li>
+        <li>Bacchanal Buffet: one lunch here is mandatory, it's legendary</li>
+        <li>Hell's Kitchen by Gordon Ramsay is right inside — perfect for the fancy dinner</li>
+        <li>The casino floor is massive — pick a home table and claim it</li>
+        <li>Ask about a shared suite upgrade — four adults splitting one massive suite beats four separate rooms</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- TOAST -->
+<div class="toast-wrap">
+  <div style="font-size:2.5rem;margin-bottom:1.5rem">🥂</div>
+  <div class="toast-quote">
+    "From the gullies of Ahmedabad to the lights of Las Vegas — we didn't just grow up. We grew into exactly who we were always going to be. Here's to the boys who became these men."
+  </div>
+  <div class="names-row">Priyen &nbsp;·&nbsp; Nikunj &nbsp;·&nbsp; Chintan &nbsp;·&nbsp; Bharat</div>
+  <div class="toast-attr">A.G. School Batch of 1993 &nbsp;·&nbsp; September 8, 2026 &nbsp;·&nbsp; Caesar's Palace</div>
+</div>
+
+</body>
+</html>
